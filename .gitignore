@@ -4,4 +4,3 @@ node_modules/
 
 # 调试过程中的截图，不纳入版本控制
 preview/*.png
-docs/*.png
