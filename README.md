@@ -2,10 +2,6 @@
 
 油猴脚本，重设 <https://aigc.hkust-gz.edu.cn/conversation-mode> 的视觉与输入体验，并自动跟随系统深色模式。
 
-![深色模式](docs/screenshot-dark.png)
-
-![浅色模式](docs/screenshot-light.png)
-
 ## 安装
 
 1. 浏览器安装 Tampermonkey / Violentmonkey。
@@ -25,8 +21,6 @@
 - **深色模式**：校徽与图标单色反转；代码块、引用、表格、弹窗、下拉、搜索框、登录页同步换肤。
 - **数学公式**：直接接管站点的 Markdown 渲染（`MarkdownIt.prototype.render`），在解析前把公式整段抽出，
   渲染完再用 KaTeX 放回。公式全程不经过 Markdown 语法，所以 `_`、`\\`、`\[` 都不可能被改写。
-
-![公式渲染](docs/screenshot-math.png)
 
 ## 交互细节
 

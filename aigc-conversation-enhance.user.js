@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AIGC 对话界面增强 · HKUST(GZ)
 // @namespace    https://aigc.hkust-gz.edu.cn/
-// @version      2.5.0
+// @version      2.5.1
 // @description  重设 aigc.hkust-gz.edu.cn 对话页：深蓝墨 + 校金配色、书栏式消息、随内容生长的输入框、平滑的新消息入场，自动跟随系统深色模式。
 // @author       lead
 // @match        https://aigc.hkust-gz.edu.cn/*
@@ -102,7 +102,8 @@ header.ant-layout-header {
 }
 .header { box-shadow: none !important; height: 64px; display: flex; align-items: center; padding-right: 24px; }
 .header .logo-box { padding-left: 24px; }
-.header .logo { height: 26px !important; filter: var(--aigcx-logo-filter); opacity: .95; transition: filter .2s ease; }
+/* 不给 filter 加过渡：主题切换时过渡会让图标停在中间态（发灰） */
+.header .logo { height: 26px !important; filter: var(--aigcx-logo-filter); opacity: .95; }
 .header .systemName {
   color: var(--aigcx-ink-strong) !important;
   font-size: 16.5px !important; font-weight: 600 !important; letter-spacing: .012em;
@@ -155,6 +156,12 @@ header.ant-layout-header {
 .name-drop-icon { filter: var(--aigcx-logo-filter); opacity: .5; }
 
 /* ============ 6. 左侧窄栏 + 抽屉 ============ */
+/* 主题切换一次性生效：底板颜色不参与过渡，否则会看到半套配色 */
+html, body,
+aside.ant-layout-sider, .header, .chat-box, .conversation,
+.drager_row, .drager_top, .drager_bottom, .layout-block {
+  transition-property: none !important;
+}
 aside.ant-layout-sider {
   background: var(--aigcx-surface) !important;
   border-right: 1px solid var(--aigcx-hairline) !important;
